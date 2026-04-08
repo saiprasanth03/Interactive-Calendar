@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #0284c7;
+  --primary-dark: #0369a1;
+  --bg-calendar: #ffffff;
+  --bg-page: #fdfdfd;
+  --text-main: #0f172a;
+  --text-dim: #64748b;
+  --border-light: #f1f5f9;
+  --accent: #fbbf24;
+  
+  --shadow-luxe: 0 10px 40px -10px rgba(0,0,0,0.06), 0 20px 60px -20px rgba(0,0,0,0.1);
+  --radius-luxe: 24px;
+  
+  --font-main: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-page);
+  color: var(--text-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  /* Paper grain effect */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  background-size: 100px 100px;
+  background-repeat: repeat;
+  background-blend-mode: overlay;
+  opacity: 0.99;
+}
+
+#root {
+  width: 100%;
+  max-width: 1400px;
+}

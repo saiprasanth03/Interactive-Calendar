@@ -1,0 +1,341 @@
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 40px;
+  background: #f0f2f5;
+  perspective: 2000px;
+}
+
+.wall-calendar-wrapper {
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+  filter: drop-shadow(0 30px 60px rgba(0,0,0,0.15));
+}
+
+/* Spiral Binder Style */
+.spiral-binder {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 40px;
+  position: relative;
+  z-index: 10;
+  margin-bottom: -15px;
+}
+
+.spiral-ring {
+  width: 12px;
+  height: 40px;
+  position: relative;
+  transition: all 0.3s;
+}
+
+.ring-metal {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #475569, #94a3b8, #cbd5e1, #94a3b8, #475569);
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+/* Calendar Page */
+.calendar-page {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 0 #e2e8f0;
+}
+
+.calendar-inner-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hero Section with Diagonal Slant */
+.hero-section {
+  position: relative;
+  height: 380px;
+  background: #0284c7;
+  transition: height 0.3s;
+}
+
+.hero-image-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-slant-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  clip-path: polygon(0 80%, 100% 50%, 100% 100%, 0% 100%);
+  z-index: 2;
+  transition: clip-path 0.3s;
+}
+
+.hero-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  padding: 40px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.month-badge-card {
+  background: var(--primary);
+  padding: 25px 40px;
+  color: white;
+  box-shadow: 0 15px 35px rgba(2, 132, 199, 0.3);
+  text-align: right;
+  margin-top: 50px;
+}
+
+.year-text {
+  font-size: 1.2rem;
+  font-weight: 300;
+  letter-spacing: 4px;
+  opacity: 0.9;
+  line-height: 1;
+}
+
+.month-text {
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 1;
+  margin-top: 5px;
+  transition: font-size 0.3s;
+}
+
+.calendar-nav {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-btn {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Content Layout (Desktop) */
+.main-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  padding: 40px 60px 60px;
+  gap: 60px;
+  background: white;
+  position: relative;
+  z-index: 10;
+}
+
+/* Notes Section */
+.notes-section {
+  display: flex;
+  flex-direction: column;
+  background: #f8fafc;
+  padding: 30px;
+  border-radius: 12px;
+  height: fit-content;
+}
+
+.notes-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  color: #64748b;
+}
+
+.notes-header h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+textarea {
+  width: 100%;
+  min-height: 200px;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 2rem;
+  resize: none;
+  background-image: linear-gradient(transparent 95%, #e2e8f0 95%);
+  background-size: 100% 2rem;
+  background-attachment: local;
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.save-note-btn {
+  margin-top: 20px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.save-note-btn:disabled {
+  opacity: 0.3;
+}
+
+/* Calendar Grid */
+.weekday {
+  text-align: center;
+  font-weight: 800;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  letter-spacing: 2px;
+  padding-bottom: 15px;
+}
+
+.weekdays-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.day-cell {
+  aspect-ratio: 1.2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s;
+  font-weight: 500;
+  color: #475569;
+}
+
+.day-cell:hover:not(.off-month) {
+  background: #f1f5f9;
+  border-radius: 8px;
+}
+
+.day-cell.off-month {
+  opacity: 0.15;
+  cursor: default;
+}
+
+.day-cell.is-today {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+.day-cell.selected {
+  background: var(--primary) !important;
+  color: white !important;
+  border-radius: 8px;
+}
+
+.day-cell.in-range {
+  background: #f0f9ff;
+}
+
+.note-dot {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 6px;
+  height: 6px;
+  background: #0ea5e9;
+  border-radius: 50%;
+}
+
+/* Responsiveness Fixes */
+@media (max-width: 900px) {
+  .app-container {
+    padding: 20px;
+  }
+
+  .main-layout {
+    grid-template-columns: 1fr;
+    padding: 30px;
+    gap: 40px;
+  }
+  
+  .hero-section { height: 320px; }
+  .month-text { font-size: 2.8rem; }
+  .month-badge-card { padding: 20px 30px; }
+  .hero-content { padding: 30px; }
+}
+
+@media (max-width: 640px) {
+  .spiral-binder {
+    padding: 0 20px;
+  }
+  
+  .spiral-ring {
+    width: 10px;
+    height: 30px;
+  }
+  
+  .hero-section { height: 280px; }
+  .hero-slant-overlay {
+    clip-path: polygon(0 90%, 100% 70%, 100% 100%, 0% 100%);
+  }
+  
+  .month-text { font-size: 2.2rem; }
+  .month-badge-card { margin-top: 30px; }
+  .hero-content { flex-direction: column-reverse; gap: 20px; padding: 20px; align-items: flex-start; }
+  .calendar-nav { align-self: flex-end; }
+  
+  .day-cell { aspect-ratio: 1; }
+  .date-number { font-size: 0.9rem; }
+}
+
+@media (max-width: 400px) {
+  .app-container {
+    padding: 10px;
+  }
+  
+  .main-layout {
+    padding: 20px 15px;
+  }
+  
+  .month-text { font-size: 1.8rem; }
+  .weekday { font-size: 0.7rem; letter-spacing: 1px; }
+}
